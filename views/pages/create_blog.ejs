@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <%- include('../layout/head', { title: 'New blog | BlogBlaze' }) %>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+  <script src="/js/script.js" defer></script>
+  <script src="/js/create_blog.js" type="module"></script>
+  
+</head>
+<body>
+
+  <!-- 
+    - #TOP APP BAR
+  -->
+
+  <%- include('../partials/top_app_bar') %>
+
+
+  <main class="main">
+    
+    <article class="page create-blog-page">
+      <div class="container">
+
+        <h2 class="page-title text-on-surface headline-small">
+          Create blog
+        </h2>
+
+        
+
+          <input type="text" name="title" aria-label="Blog title" placeholder="Article Title..." required class="title-field headline-large">
+
+          <textarea name="content" aria-label="Blog content" placeholder="Write your post content here..." required class="textarea body-large" data-textarea-auto-height></textarea>
+
+          <div class="footer-actions">
+
+            <button class="btn btn-fill" data-publish-btn>
+              <p class="label-large">Publish</p>
+
+              <div class="state-layer"></div>
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+    </article>
+
+  </main>
+
+  
+  <!-- 
+    - #FOOTER
+  -->
+
+  <%- include('../layout/footer') %>
+
+
+  <!-- 
+    - #SNACKBAR
+  -->
+  <div class="snackbar-wrapper" data-snackbar-wrapper></div>
+  
+</body>
+</html>
