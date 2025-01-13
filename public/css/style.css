@@ -10,6 +10,9 @@
     /**
      * COLORS
      */
+     --top-app-bar-bg-light: linear-gradient(45deg, #e3f2fd, #003366); /* Light theme gradient */
+     --top-app-bar-bg-dark: linear-gradient(45deg, #1f1c2c, #928DAB); /* Dark theme gradient */
+ 
     --backdrop-background: #000000;
     --reaction-active: #FF4261;
     
@@ -208,9 +211,9 @@
   
   @media (prefers-color-scheme: light) {
     :root {
-  
+      --top-app-bar-bg: var(--top-app-bar-bg-light);
       color-scheme: light;
-    
+     
       --primary: var(--primary-light);
       --on-primary: var(--on-primary-light);
       --tertiary: var(--tertiary-light);
@@ -236,16 +239,31 @@
       --inverse-on-surface: var(--inverse-on-surface-light);
     
     }
-  
+    body {
+      animation: gradient-animation 10s ease infinite;
+      background:  linear-gradient(45deg,#e3f2fd,#003366);
+      background-size: 400% 400%;
+  }
+
+  @keyframes gradient-animation {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  }
     .logo .light { display: none; }
   }
   
   
   @media (prefers-color-scheme: dark) {
     :root {
-  
       color-scheme: dark;
-    
+      --top-app-bar-bg: var(--top-app-bar-bg-dark);
       --primary: var(--primary-dark);
       --on-primary: var(--on-primary-dark);
       --tertiary: var(--tertiary-dark);
@@ -270,11 +288,31 @@
       --inverse-primary: var(--inverse-primary-dark);
       --inverse-surface: var(--inverse-surface-dark);
       --inverse-on-surface: var(--inverse-on-surface-dark);
-    
     }
   
-    .logo .dark { display: none; }
+    body {
+      animation: gradient-animation 10s ease infinite;
+      background: linear-gradient(45deg, #1f1c2c, #928DAB); /* Adjusted gradient */
+      background-size: 400% 400%;
+    }
+  
+    @keyframes gradient-animation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  
+    .logo .dark {
+      display: none;
+    }
   }
+  
   
   
   
@@ -807,8 +845,10 @@
    * Top app bar
    */
   
-  .top-app-bar {
-    background-color: var(--surface);
+   .top-app-bar {
+    background: var(--top-app-bar-bg); /* Neutral gradient */
+    background-size: 400% 400%;
+    animation: gradient-animation 10s ease infinite;
     position: fixed;
     top: 0;
     left: 0;
@@ -823,7 +863,20 @@
     transition: var(--tr-duration-short-2) var(--tr-easing-linear);
     transition-property: background-color, translate, border-color;
     z-index: 4;
-  }
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
   
   .top-app-bar.hide { translate: 0 -100%; }
   

@@ -27,8 +27,11 @@ const login = require('./src/routes/login_route');
 const { connectDB, disconnectDB } = require('./src/config/mongoose_config');
 const home = require('./src/routes/home_route');
 const createBlog = require('./src/routes/create_blog_route');
-
-
+const logout = require('./src/routes/logout_route');
+const profile = require('./src/routes/profile_route');
+const readingList = require('./src/routes/reading_list_route');
+const dashboard = require('./src/routes/dashboard_route');
+const settings = require('./src/routes/settings_route');
 
 
 /* 
@@ -87,15 +90,48 @@ app.use('/register', register);
 app.use('/login', login);
 
 
+
+
+/**
+ *  logout
+ */
+app.use('/logout', logout);
+
+
 /**
  *  home page 
  */
 app.use('/', home);
 
+/*
+* user authentication
+*/
+
+
+/**
+ * profile page
+ */
+app.use('/profile', profile);
+
+/**
+ * reading list page
+ */
+app.use('/readinglist', readingList);
+
 /**
  *  create blog page 
  */
 app.use('/createblog', createBlog);
+
+/**
+ * dashboard
+ */
+app.use('/dashboard', dashboard);
+
+/**
+ * settings
+ */
+app.use('/settings', settings);
 
 
 

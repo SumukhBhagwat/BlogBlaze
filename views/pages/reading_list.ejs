@@ -1,11 +1,8 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
-  <%- include('../layouts/head', { title: 'Home | BlogBlaze' }) %>
+  <%- include('../layouts/head', { title: 'Reading list | BlogBlaze' }) %>
 
   <script src="/js/script.js" defer></script>
   
@@ -20,27 +17,30 @@
 
 
   <main class="main">
-    
 
     <!-- 
       - #HOME
     -->
-    <article class="page home-page">
+    <article class="page">
 
       <div class="container">
 
         <h2 class="headline-small page-title text-on-surface">
-          Latest blogs
+          Reading list
         </h2>
 
         <div class="blog-list">
 
-          <% if (locals.latestBlogs.length) { %>
-            <% locals.latestBlogs.forEach(blog => { %>
-              
+          <% if (locals.readingListBlogs.length) { %>
+            <% locals.readingListBlogs.forEach(blog => { %>
               <%- include('../partials/card', { blog }) %>
-              
             <% }) %>
+          <% } else { %>
+
+            <p class="body-large text-on-surface-variant">
+              You haven't added any article in reading list.
+            </p>
+
           <% } %>
 
         </div>
