@@ -31,7 +31,7 @@ const renderHome = async (req, res) => {
 
     // Retrieve blogs from the database, selecting specified fields and populating 'owner' field
     const latestBlogs = await Blog.find()
-      .select('banner author createdAt readingTime title reaction totalBookmark')
+      .select('banner author createdAt readingTime title reaction totalBookmark')  ///////
       .populate({
         path: 'owner',
         select: 'name username profilePhoto'

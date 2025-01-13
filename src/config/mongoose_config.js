@@ -1,3 +1,8 @@
+/**
+ * @license Apache-2.0
+ * @copyright 2024 codewithsadee
+ */
+
 'use strict';
 
 
@@ -11,13 +16,13 @@ const mongoose = require('mongoose');
  * Client options object containing server API configuration.
  * @type {ClientOptions}
  */
-const clientOptions = { 
+const clientOptions = {
   serverApi: {
     version: '1',
     strict: true,
     deprecationErrors: true
   },
-  dbName: 'BlogBlaze'
+  dbName: 'inktale'
 }
 
 

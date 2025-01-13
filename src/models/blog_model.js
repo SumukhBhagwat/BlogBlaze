@@ -16,16 +16,16 @@ const mongoose = require('mongoose');
  * Mongoose schema for blog
  */
 const blogSchema = new mongoose.Schema({
-  banner: {
-    url: {
-      type: String,
-      require: true
-    },
-    public_id: {
-      type: String,
-      require: true
-    }
-  },
+  // banner: {
+  //   url: {
+  //     type: String,                        ////////////
+  //     require: true
+  //   },
+  //   public_id: {
+  //     type: String,
+  //     require: true
+  //   }
+  // },
   title: {
     type: String,
     require: true

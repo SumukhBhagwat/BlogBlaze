@@ -142,15 +142,3 @@ const server = app.listen(PORT, async () => {
 
   await connectDB(process.env.MONGO_CONNECTION_URI);
 });
-
-
-
-
-
-
-
-
-
-
-
-

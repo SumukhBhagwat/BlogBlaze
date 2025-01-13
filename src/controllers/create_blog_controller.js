@@ -11,7 +11,7 @@ const crypto = require('crypto');
 /**
  * custom modules
  */
-const uploadToCloudinary = require('../config/cloudinary_config');
+//const uploadToCloudinary = require('../config/cloudinary_config'); ///////////
 const Blog = require('../models/blog_model');
 const User = require('../models/user_model');
 const getReadingTime = require('../utils/get_reading_time_util');
@@ -35,11 +35,11 @@ const postCreateBlog = async (req, res) => {
   try {
 
     // Retrieve title and content from request body
-    const { banner, title, content } = req.body;
+    const { title, content } = req.body; ///////  banner removed
 
     // Upload blog banner to Cloudinary
-    const public_id = crypto.randomBytes(10).toString('hex');
-    const bannerURL = await uploadToCloudinary(banner, public_id);
+    //const public_id = crypto.randomBytes(10).toString('hex');    //////////
+    //const bannerURL = await uploadToCloudinary(banner, public_id);
 
     // Find the user who is creating the blog post
     const user = await User.findOne({ username: req.session.user.username })
@@ -47,10 +47,7 @@ const postCreateBlog = async (req, res) => {
 
     // Create a new blog post
     const newBlog = await Blog.create({
-      banner: {
-        url: bannerURL,
-        public_id
-      },
+      
       title,
       content,
       owner: user._id,
